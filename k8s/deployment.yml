@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coming-soon-deploy
+  labels:
+    app.kubernetes.io/name: webserv
+spec:
+  selector:
+    matchLabels:
+      app: coming-soon-deploy
+  template:
+    metadata:
+      labels:
+        app: coming-soon-deploy
+    spec:
+      containers:
+      - name: coming-soon-deploy
+        image: coming-soon:1.0.0
+        ports:
+        - containerPort: 80
+          name: http-web-svc
